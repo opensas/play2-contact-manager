@@ -1,0 +1,21 @@
+@(id: Long, contactForm: Form[Contact])
+
+@import helper._
+
+@main("Edit contact") {
+
+  <h1>Contact form</h1>
+
+  @form(routes.Contact.update(id)) {
+
+    <fieldset>
+    	@inputText(contactForm("id"),       '_label -> "Contact id")
+      @inputText(contactForm("name"),     '_label -> "Contact name")
+      @inputText(contactForm("address"),  '_label -> "Contact address")
+    </fieldset>
+
+    <input type="submit" value="Update this contact"> or
+    <a href="@routes.Contact.list()">Cancel</a>
+
+  }
+}

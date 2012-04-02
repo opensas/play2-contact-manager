@@ -1,0 +1,6 @@
+04-01 14:38:53 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Table "PLAY_EVOLUTIONS" not found; SQL statement:
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%' [42102-158]
+04-01 16:36:38 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Table "CONTACT" not found; SQL statement:
+select * from contact where id = ? [42102-158]

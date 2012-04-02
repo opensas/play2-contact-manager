@@ -1,0 +1,20 @@
+@(contactForm: Form[Contact])
+
+@import helper._
+
+@main("Create contact") {
+
+  <h1>New contact</h1>
+
+  @helper.form(routes.Contact.insert()) {
+
+    <fieldset>
+      @inputText(contactForm("name"),      '_label -> "Contact name")
+      @inputText(contactForm("address"),   '_label -> "Contact address")
+    </fieldset>
+
+    <input type="submit" value="Create this contact"> or
+    <a href="@routes.Contact.list()">Cancel</a>
+
+  }
+}

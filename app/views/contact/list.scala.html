@@ -1,0 +1,35 @@
+@(contacts: Seq[Contact])
+
+@import helper._
+
+@main("Contact list") {
+
+  @if(contacts) {
+	<h1>@contacts.size contact(s)</h1>
+  <table border="1">
+  	<thead>
+      <td><a href="@routes.Contact.list("id")">id</a></td>
+  		<td>Name</td>
+  		<td>Address</td>
+  		<td></td>
+  	</thead>
+  	@contacts.map { contact =>
+  	<tr>
+      <td><a href="@routes.Contact.edit(contact.id.get)">@contact.id</a></td>
+  		<td>@contact.name</td>
+  		<td>@contact.address</td>
+  		<td>
+  			@form(routes.Contact.delete(contact.id.get)) {
+  				<input type="submit" value="del"</input>
+  			}
+  		</td>
+  	</tr>
+  	}
+  </table>
+	} else {
+    <h1>No contacts found</h1>
+  }
+
+  <a href="@routes.Contact.create()">Create new contact</a>
+
+}
